@@ -16,6 +16,8 @@
 		550CBA2D2B72D96F00637010 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550CBA2C2B72D96F00637010 /* WeatherTests.swift */; };
 		550CBA372B72D96F00637010 /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550CBA362B72D96F00637010 /* WeatherUITests.swift */; };
 		550CBA392B72D96F00637010 /* WeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550CBA382B72D96F00637010 /* WeatherUITestsLaunchTests.swift */; };
+		550CBA462B72E50700637010 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550CBA452B72E50700637010 /* DataModels.swift */; };
+		550CBA482B72F1BC00637010 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550CBA472B72F1BC00637010 /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		550CBA322B72D96F00637010 /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550CBA362B72D96F00637010 /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		550CBA382B72D96F00637010 /* WeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		550CBA452B72E50700637010 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		550CBA472B72F1BC00637010 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				550CBA1E2B72D96E00637010 /* Assets.xcassets */,
 				550CBA202B72D96E00637010 /* LaunchScreen.storyboard */,
 				550CBA232B72D96E00637010 /* Info.plist */,
+				550CBA472B72F1BC00637010 /* DataSource.swift */,
+				550CBA452B72E50700637010 /* DataModels.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -259,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				550CBA1A2B72D96D00637010 /* ViewController.swift in Sources */,
+				550CBA462B72E50700637010 /* DataModels.swift in Sources */,
 				550CBA162B72D96D00637010 /* AppDelegate.swift in Sources */,
+				550CBA482B72F1BC00637010 /* DataSource.swift in Sources */,
 				550CBA182B72D96D00637010 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
