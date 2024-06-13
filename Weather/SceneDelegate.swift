@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Weather
-//
-//  Created by Захар Брюханов on 07.02.2024.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
