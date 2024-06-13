@@ -10,8 +10,8 @@ class ViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var weatherData = WeatherData()
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,40 +30,29 @@ class ViewController: UIViewController {
     }
     
     func updateWeatherInfo(latitude: Double, longtitude: Double) {
-        let urlSession = URLSession.shared
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longtitude)&units=metric&lang=ru&appid=bb8feb4950ead6a13c40a4e4a2cd1c75")
-        
-        guard let url = url else {
-            print("URL error")
-            return
-        }
-        
-        let task = urlSession.dataTask(with: url) { (data, response, error) in
-            guard error == nil else {
-                print("DataTask error: \(error!.localizedDescription)")
-                return
-            }
-            
-            do {
-                self.weatherData = try JSONDecoder().decode(WeatherData.self, from: data!)
-                DispatchQueue.main.async {
-                    self.updateView()
-                }
-                
-            } catch {
-                print(error.localizedDescription)
+        NetworkManager.shared.fetchWeatherData(latitude: latitude, longitude: longtitude) { [weak self] weatherData in
+            guard let self = self else { return }
+            guard let weatherData = weatherData else { return }
+            self.weatherData = weatherData
+            DispatchQueue.main.async {
+                self.updateView()
             }
         }
-        task.resume()
     }
     
     func updateView() {
         cityNameLabel.text = weatherData.name
         weatherDesriptionLabel.text = DataSource.weatherIDs[weatherData.weather[0].id]
         temperatureLabel.text = weatherData.main.temp.description + "°"
-        weatherImageView.image = UIImage(named: weatherData.weather[0].icon)
+        
+        if let imageName = weatherData.weather.first?.icon,
+           let image = UIImage(named: imageName) {
+            weatherImageView.image = image
+        } else {
+            print("Image not found for icon: \(weatherData.weather.first?.icon ?? "unknown")")
+        }
     }
-
+    
 }
 
 extension ViewController: CLLocationManagerDelegate {
